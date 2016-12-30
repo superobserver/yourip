@@ -1,0 +1,25 @@
+#!/usr/bin/python
+#Python script to search for and download MP3s using youtube-dl
+
+import youtube_dl
+
+class yourip:
+	
+	def findMp3(self, searchString):
+		print "This function is for finding MP3s to download."
+	#End findMp3 Function
+
+	def downloadMp3(self, url):
+		print "This function is for downloading the MP3 once it has been found."
+	#End downloadMp3 Function 
+
+	def findArtist(self, searchString):
+		print "This function will return a list of Mp3s when given an Artist."
+	#End findArtist Function
+
+#End Class
+
+ripper = yourip()
+ripper.findMp3()
+ripper.downloadMp3()
+ripper.findArtist()
