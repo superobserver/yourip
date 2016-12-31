@@ -2,6 +2,7 @@
 #Python script to search for and download MP3s using youtube-dl
 
 import youtube_dl
+import argparse
 
 class yourip:
 	
@@ -14,12 +15,22 @@ class yourip:
 	#End downloadMp3 Function 
 
 	def findArtist(self, searchString):
-		print "This function will return a list of Mp3s when given an Artist."
+		print "This function will return a list of MP3s when given an Artist."
 	#End findArtist Function
 
 #End Class
 
-ripper = yourip()
-ripper.findMp3()
-ripper.downloadMp3()
-ripper.findArtist()
+parser = argparse.ArgumentParser(description='Uses youtube_dl to extract MP3s from videos. Attempts to locate metadata and apply it to the resulting MP3',prog='yourip')
+parser.add_argument('-u', '--url', type=str, help='Instructs %(prog)s to download a song given a specific URL.')
+parser.add_argument('-s', '--search', type=str, help='Instructs %(prog)s to search by any specified search string.')
+parser.add_argument('-n', '--number', type=str, help='Instructs %(prog)s to download the top n results. Must be combined with -s or --search flag.')
+parser.add_argument('-t', '--track', type=str, help='Instructs %(prog)s to search by specified Track.This is useful because it tells %(prog)s the track name to assist with finding Metadata. Can be combined with all options.')
+parser.add_argument('-a', '--artist', type=str, help='Instructs %(prog)s to search by specified Artist.This is useful because it tells %(prog)s the Artist name to assist with finding Metadata. Can be combined with all options.')
+parser.add_argument('-i', '--interactive', action="store_true", help='Interactive search and download. Allows you to use all available options.')
+args = parser.parse_args()
+
+def interactiveMode():
+	print "This would be when the interactive mode starts."
+
+if args.interactive:
+        interactiveMode()
